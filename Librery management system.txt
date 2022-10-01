@@ -1,0 +1,113 @@
+import java.util.Scanner;
+public class myproject{
+
+    public void main(String[] args) {
+        char r;
+        do {
+            System.out.println("      Librery management system       ");
+            System.out.println(" press 1 to add book   ");
+            System.out.println(" press 2 to issue a book  ");
+            System.out.println(" press 3 to return a book");
+            System.out.println(" press 4 to print complete issue details ");
+            System.out.println("press 5 to exit ");
+            Scanner obj1 = new Scanner(System.in);
+            System.out.println("Enter any Number");
+            int a = obj1.nextInt();
+            switch (a) {
+                case 1:
+                    Librery aa = new Librery();
+                    aa.add();
+                    break;
+                case 2:
+                    Librery bb = new Librery();
+                    bb.issue();
+                    break;
+                case 3:
+                    Librery cc = new Librery();
+                    cc.ret();
+                    break;
+                case 4:
+                    Librery dd = new Librery();
+                    dd.Detail();
+                    break;
+                case 5:
+                    Librery ee = new Librery();
+                    ee.exit();
+                    break;
+                default:
+                    System.out.println("Invalid Number");
+
+            }
+            System.out.println("You Want to Select Next Option y/N");
+            r = obj1.next().charAt(0);
+        } while (r == 'y' || r == 'Y');
+
+        if (r == 'n' || r == 'N') {
+            Librery z = new Librery();
+            z.exit();
+        }
+    }
+
+    class Librery {
+        static String str, b, date;
+        static int a, c;
+
+        void add() {
+            System.out.println(" Enter book Name,price and Book_no ");
+            Scanner obj2 = new Scanner(System.in);
+            String str = obj2.nextLine();
+            float price = obj2.nextInt();
+            int book_no = obj2.nextInt();
+            System.out.println("your details is " + str + price + book_no);
+        }
+
+        void issue() {
+            Scanner obj3 = new Scanner(System.in);
+            System.out.println(" Book Name");
+            String str = obj3.nextLine();
+            System.out.println("Book_id");
+            a = obj3.nextInt();
+            obj3.nextLine();
+            System.out.println("issue Date");
+            b = obj3.nextLine();
+            System.out.println("Total Number of Book Issue");
+            c = obj3.nextInt();
+            obj3.nextLine();
+            System.out.println("Return Book date");
+            date = obj3.nextLine();
+        }
+
+        int Getid() {
+            return a;
+        }
+
+        void ret() {
+            System.out.println("Enter Student_name & book_id");
+            Scanner c = new Scanner(System.in);
+            String name = c.nextLine();
+            int book_id = c.nextInt();
+            if (a == book_id) {
+                System.out.println("Total Details");
+                System.out.println("Book Name ::" + Librery.str);
+                System.out.println("Book_id::" + Librery.a);
+                System.out.println("issue Date" + Librery.b);
+                System.out.println("Total Number od Book Issue ::" + Librery.c);
+                System.out.println("Book Return Date::" + Librery.date);
+            } else {
+                System.out.println("Wrong id,plz Enter Correct id");
+            }
+        }
+
+        void Detail() {
+            System.out.println("Book Name::" + Librery.str);
+            System.out.println("Book_id::" + Librery.a);
+            System.out.println("Issue date" + Librery.b);
+            System.out.println("Total Number of Book Issue::" + Librery.c);
+            System.out.println("Book Return Date::" + Librery.date);
+        }
+
+        void exit() {
+            System.exit(0);
+        }
+    }
+}
